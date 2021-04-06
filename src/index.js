@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.text());
 
 app.post('/api/justify', (req, res) => {
-    const reqText = JSON.parse(req.body).text;
+    const reqText = req.body;
     if (req.headers['content-type'] === "text/plain;charset=UTF-8") {
         fs.readFile('./database', (err, data) => {
             const token = req.headers['token'];
